@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Headwaze</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(function(){
+	$("#get-current-location").click(function() {
+		alert("yo");
+	});
+});
+</script>
+</head>
+<body>
+<div data-role="header">
+	<h1>Headwaze</h1>
+	<a href="#" id="get-current-location" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-location">Current Location</a>
+</div>
+<div class="ui-field-contain"> 
+	<select id="stations">
+    		<optgroup>
+      			<option value="current_location" data-icon="location"><a class="ui-icon-location">Current Location</a></option>
+    		</optgroup>
+    		<optgroup value="Nearby Stations">
+      			<option>
+        			<span class="badge">A,C,2,3,J,Z</span>&nbsp;Fulton St
+			</option>
+    		</optgroup>
+    		<optgroup value="Popular Stations">
+      			<option value="fulton-wtc">Fulton/WTC</option>
+      			<option value="west-village">West Village</option>
+      			<option value="east-village">East Village</option>
+      			<option value="soho">SoHo</option>
+      			<option value="pennsy">Penn Station</option>
+      			<option value="drunk_elmo">Times Square</option>
+      			<option value="grand-central">Grand Central</option>
+      			<option value="columbus-circle">Columbus Circle</option>
+      			<option value="upper-east">Upper East Side</option>
+      			<option value="harlem">Harlem</option>
+      			<option value="washington-heights">Washington Heights</option>
+      			<option value="dumbo">DUMBO (BK)</option>
+      			<option value="brooklyn-heights">Brooklyn Heights (BK)</option>
+      			<option value="williamsburg">Williamsburg (BK)</option>
+      			<option value="broadway-junction">Broadway Junction (BK)</option>
+      			<option value="long-island-city">LIC (Queens)</option>
+      			<option value="jfk">JFK (Queens)</option>
+      			<option value="broad-channel">Broad Channel (Queens)</option>
+    		</optgroup>
+ 	</select>
+</div>
+<hr />
+<div class="ui-field-contain">
+	<ul data-role="listview" id="nearby-stations">
+		<li><a href="#">Broad Channel</a></li>
+		<li><a href="#">JFK</a></li>
+	</ul>
+</div>
+</body>
