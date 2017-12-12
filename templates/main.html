@@ -5,12 +5,28 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+</script>
+<script>
 $(function(){
+	var uuid = localStorage.getItem("UUID");
+	if(!uuid) {
+		uuid = guid();
+		localStorage.setItem("UUID",uuid);
+	}
 	$("#get-current-location").click(function() {
 		alert("yo");
 	});
 	$("#stations").change(function() {
-		alert("change");
+		alert(guid());
 	});
 });
 </script>
@@ -24,7 +40,7 @@ $(function(){
 	<div class="ui-content"> 
 		<select id="stations">
     			<optgroup>
-      				<option value="current_location" data-icon="location"><a class="ui-icon-location">Current Location</a></option>
+      				<option value="current_location" data-icon="location">Last Location</option>
     			</optgroup>
     			<optgroup value="Nearby Stations">Nearby Stations
       				<option>
@@ -57,7 +73,7 @@ $(function(){
 	<div class="ui-content">
 		<ul data-role="listview" id="nearby-stations">
 		{% for each in nearby_stations %}
-			<li><a href="#" id="{{each}}">{{ each }}</a></li>
+			<li><a href="/station/{{each}}/station_detail.html" id="{{each}}">{{ each }}</a></li>
 		{% endfor %}
 		</ul>
 	</div>

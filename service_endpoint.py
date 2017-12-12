@@ -14,6 +14,12 @@ NEARBY_STOPS = ['Canal St', 'Franklin St', 'Chambers St', 'Cortlandt St', 'Recto
 def home():
     return render_template("main.html",nearby_stations=NEARBY_STOPS)
 
+@app.route('/station/<station>/<uuid>')
+def stops(station,uuid):
+    if UUID_RE.match(uuid) == None:
+        return INVALID_REQUEST
+    return render_template("station_detail.html")
+
 @app.route('/stations-near/<uuid>')
 def stations_near(uuid):
     if UUID_RE.match(uuid) == None:
