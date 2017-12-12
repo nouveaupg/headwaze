@@ -9,22 +9,26 @@ $(function(){
 	$("#get-current-location").click(function() {
 		alert("yo");
 	});
+	$("#stations").change(function() {
+		alert("too");
+	});
 });
 </script>
 </head>
 <body>
-<div data-role="header">
-	<h1>Headwaze</h1>
-	<a href="#" id="get-current-location" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-location">Current Location</a>
-</div>
-<div class="ui-field-contain"> 
-	<select id="stations">
-    		<optgroup>
-      			<option value="current_location" data-icon="location"><a class="ui-icon-location">Current Location</a></option>
-    		</optgroup>
-    		<optgroup value="Nearby Stations">
-      			<option>
-        			<span class="badge">A,C,2,3,J,Z</span>&nbsp;Fulton St
+<div id="parent" data-role="page">
+	<div data-role="header">
+		<h1>Headwaze</h1>
+		<a href="#" id="get-current-location" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-location">Current Location</a>
+	</div>
+	<div class="ui-content"> 
+		<select id="stations">
+    			<optgroup>
+      				<option value="current_location" data-icon="location"><a class="ui-icon-location">Current Location</a></option>
+    			</optgroup>
+    			<optgroup value="Nearby Stations">Nearby Stations
+      				<option>
+        				<span class="badge">A,C,2,3,J,Z</span>&nbsp;Fulton St
 			</option>
     		</optgroup>
     		<optgroup value="Popular Stations">
@@ -46,14 +50,16 @@ $(function(){
       			<option value="long-island-city">LIC (Queens)</option>
       			<option value="jfk">JFK (Queens)</option>
       			<option value="broad-channel">Broad Channel (Queens)</option>
-    		</optgroup>
- 	</select>
-</div>
-<hr />
-<div class="ui-field-contain">
-	<ul data-role="listview" id="nearby-stations">
-		<li><a href="#">Broad Channel</a></li>
-		<li><a href="#">JFK</a></li>
-	</ul>
+    			</optgroup>
+ 		</select>
+	</div>
+	<hr />
+	<div class="ui-content">
+		<ul data-role="listview" id="nearby-stations">
+		{% for each in nearby_stations %}
+			<li>{{ each }}</li>
+		{% endfor %}
+		</ul>
+	</div>
 </div>
 </body>
